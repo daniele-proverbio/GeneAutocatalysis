@@ -4,6 +4,7 @@ Code to reproduce the results of the article "Resilience of the autocatalytic fe
 
 ## Files:
 - resilience_genes.nb contains symbolic manipulation of the equilibria for n=2 and Fokker-Plank equations for all n (requires Mathematica > 14)
+- fokker_plank_final.nb estimates the Fokker Plank solutions
 - equilibria_coop.m gets numerically the equilibria for n>2 (requires Matlab > R2024)
 - simulations_delta_sigma.m performs resilience simulations
 - analysis_delta_sigma.m creates figures out of the saved data from simulations_delta_sigma.m
