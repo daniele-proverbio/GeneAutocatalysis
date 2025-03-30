@@ -13,7 +13,7 @@ clear; close all; clc;
 
 syms x            % Working with symbolic manipulation (more precise)
 K = 0.1;          % Basal expression (constant, within accepted range)
-c = 1:0.005:3.5;   % Max Production (control parameter)
+c = 1:0.5:250;     % Max Production (control parameter)   % for n=2, 1:0.01:15    % for n=3, 1:0.01:15  % for n=5, 190:0.1:200
 
 solutions=[];   % Vector of equilibria solutions
 c_vector=[];    % Vector of accepted control parameters
@@ -32,9 +32,9 @@ for m = 1:length(c)     % Check all c
             solutions = [solutions,soly(n)];
             c_vector = [c_vector,c(m)];
             if(vpa(subs(f_prime,x,soly(n))) < 0 )   % Check for linear stability -> eigenvalue <> 0
-                cmap = [cmap; [0,0.6,1]];             % If Stable point, color it in blue
+                cmap = [cmap; [0,0.9,1]];             % If Stable point, color it in blue
             else
-                cmap = [cmap; [1,0.6,0]];             % If unstable, color it in red
+                cmap = [cmap; [1,0.9,0]];             % If unstable, color it in red
                                                     % Color shades are
                                                     % changed according to
                                                     % n ([. , 0 -> 0.6 , .])
@@ -43,11 +43,10 @@ for m = 1:length(c)     % Check all c
     end
 end
 
-% plot
+%% plot
 figure;
-scatter(c_vector,solutions,10,cmap,'filled');
-ylim([0 3.4])
-xlim([1, 3.5])
+scatter(c_vector,solutions,3,cmap,'filled');
+
 ax = gca;
 ax.FontSize = 18; 
 set(gca,'XMinorTick','on','YMinorTick','on')
